@@ -25,6 +25,11 @@
 		},
 		
 		initialize: function (options) {
+			console.log(Fabrik.loader);
+			jQuery(document).ready(function() {				
+				
+			});
+
 			// Pega a referência de todos os elementos que serão modificados
 			const labels = document.querySelectorAll('label');
 			const allElements = Array.from(document.querySelectorAll('.fabrikElementContainer'));
@@ -95,17 +100,24 @@
 			
 			// manter div de databaseJoin com a mesma altura das demais
 			fabrikElementsFiltered.forEach((item, index) => {				
-				let styleCss = 'max-height: 40px; ';
-				item.style.cssText += styleCss;		
+				if(item.getElementsByTagName('select').length > 0) {
+					let styleCss = 'max-height: 40px; ';
+					item.style.cssText += styleCss;
+				}
 			})
 
 			// Altera css das div que contém o input
-			divControlsFiltered.forEach((item, index) => {				
-				item.style.cssText += 'margin: 0 auto; width: 75%; ';			
-				if(index !== 0) item.append(createPrevButton()); // página do primeiro elemento
+			divControlsFiltered.forEach((item, index) => {
+				var div = document.createElement("div");
+				div.style.cssText = 'margin-top: 30px; ';
+				
+				item.style.cssText += 'margin: 0px auto; width: 75%;';			
+				if(index !== 0) div.appendChild(createPrevButton());; // página do primeiro elemento
 				if(index !== (divControlsFiltered.length - 1)) { // página do ultimo elemento
-					item.append(createNextButton());					
+					div.appendChild(createNextButton());
 				}
+
+				item.append(div);
 			});
 			
 			// Altera o css de cada imput
