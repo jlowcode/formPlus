@@ -43,6 +43,14 @@
 			const selects = document.querySelectorAll('select');
 			const inputAppend = document.querySelectorAll('.input-append');
 			const submit = document.querySelectorAll('button[type="submit"]');
+			
+			// Estilizar o botão submit
+			submit[0].style.cssText += 'padding: 10px; ';
+
+			// Css para posicionar o botão submit do lado direito do formulário
+			document.querySelector('.fabrikActions').children[0].children[0].style.cssText = 'width: 88%; text-align: right;'
+
+			//ISSO TEM QUE VOLTAR
 			submit[0].style.display = 'none'; //Ocultando botão de submit
 
 			let formStepsNum = 0;
