@@ -25,6 +25,11 @@
 		},
 		
 		initialize: function (options) {
+			// carregar css cadastrado no backend			
+			if(options.css.formplus_css) {
+				document.getElementsByTagName('style')[0].innerHTML += options.css.formplus_css;
+			}
+
 			// O formulário foi escondido no PHP, pegamos essa referência antes das alterações
 			// dos elementos para mostrar o formulário novamente depois de pronto
 			const form = document.querySelector('.fabrikForm');
