@@ -25,11 +25,10 @@
 		},
 		
 		initialize: function (options) {
-			console.log(Fabrik.loader);
-			jQuery(document).ready(function() {				
-				
-			});
-
+			// O formulário foi escondido no PHP, pegamos essa referência antes das alterações
+			// dos elementos para mostrar o formulário novamente depois de pronto
+			const form = document.querySelector('.fabrikForm');
+			
 			// Pega a referência de todos os elementos que serão modificados
 			const labels = document.querySelectorAll('label');
 			const allElements = Array.from(document.querySelectorAll('.fabrikElementContainer'));
@@ -133,7 +132,11 @@
 			// Altera o css dos inputs de data
 			inputAppend.forEach(item => {				
 				item.style.cssText += 'width: 75%; text-align: center; ';
-			});			
+			});
+
+			// Depois que todas as alterações foram feitas no formulário
+			// apresentamos ele novamente setando o display como block
+			form.style.cssText += 'display: block; ';
 		},
 	});
 
