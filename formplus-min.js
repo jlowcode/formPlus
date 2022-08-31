@@ -24,15 +24,21 @@
             elements             : '',
 		},
 		
-		initialize: function (options) {
+		initialize: function (options) {			
+			// O formulário foi escondido no PHP, pegamos essa referência antes das alterações
+			// dos elementos para mostrar o formulário novamente depois de pronto
+			const form = document.querySelector('.fabrikForm');
+
 			// carregar css cadastrado no backend			
 			if(options.css.formplus_css) {
 				document.getElementsByTagName('style')[0].innerHTML += options.css.formplus_css;
 			}
 
-			// O formulário foi escondido no PHP, pegamos essa referência antes das alterações
-			// dos elementos para mostrar o formulário novamente depois de pronto
-			const form = document.querySelector('.fabrikForm');
+			// carrega image de background
+			if(options.css.formplus_bgimage_url) {
+				form.style.cssText += 'background-image: url("' + options.css.formplus_bgimage_url + '"); width: 100%;  height: 100%; ';
+			}
+
 			
 			// Pega a referência de todos os elementos que serão modificados
 			const labels = document.querySelectorAll('label');
@@ -58,7 +64,8 @@
 
 			// Altera o css das Labels
 			labels.forEach(item => {				
-				if(item.getAttribute("opts")) requiredElements.push(item.getAttribute("for")); // Captura os id's dos elementos obrigatórios
+				
+				if(item.getAttribute("opts") && item.getAttribute("opts").includes('heading')) requiredElements.push(item.getAttribute("for")); // Captura os id's dos elementos obrigatórios
 				item.style.cssText += 'width: 75%; text-align: left; font-size: 1.6rem; ';
 				item.style.cssText += 'margin: auto; float: none; !important; display: block !important; ';
 			});
