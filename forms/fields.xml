@@ -8,7 +8,7 @@
 
 			
 
-			<field name="formplus_cnn"
+			<!-- <field name="formplus_cnn"
 
 				description="PLG_FORM_FORMPLUS_CONNECTION_DESC"
 
@@ -16,7 +16,7 @@
 
 				repeat="true"
 
-				type="connections"/>
+				type="connections"/> -->
 
 
 			<field name="formplus_css"
@@ -25,7 +25,7 @@
 
 				cols="30"
 
-				description="PLG_FORM_FORMPLUS_ELEMENT_CSS"
+				description="PLG_FORM_FORMPLUS_DESC_ELEMENT_CSS"
 
 				label="PLG_FORM_FORMPLUS_ELEMENT_CSS"
 
@@ -38,7 +38,7 @@
 
 			       type="text"
 
-			       description="PLG_FORM_FORMPLUS_BG_IMAGE_URL"
+			       description="PLG_FORM_FORMPLUS_DESC_BG_IMAGE_URL"
 
 			       label="PLG_FORM_FORMPLUS_BG_IMAGE_URL"
 
